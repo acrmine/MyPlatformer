@@ -21,13 +21,19 @@ class Platformer extends Phaser.Scene {
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
         // Second parameter: key for the tilesheet (from this.load.image in Load.js)
-        this.tileset = this.map.addTilesetImage("kenny_tilemap_packed", "tilemap_tiles");
+        this.tileset = this.map.addTilesetImage("KennyBasicPlat", "tilemap_tiles");
 
         // Create a layer
-        this.groundLayer = this.map.createLayer("Ground-n-Platforms", this.tileset, 0, 0);
+        this.groundLayer = this.map.createLayer("groundLayer", this.tileset, 0, 0);
+        this.overlapLayer = this.map.createLayer("overlap", this.tileset, 0, 0);
+        this.playerSpawn = this.map.getObjectLayer("playerSpawn");
 
         // Make it collidable
         this.groundLayer.setCollisionByProperty({
+            collides: true
+        });
+
+        this.overlapLayer.setCollisionByProperty({
             collides: true
         });
 
@@ -37,35 +43,39 @@ class Platformer extends Phaser.Scene {
         // Phaser docs:
         // https://newdocs.phaser.io/docs/3.80.0/focus/Phaser.Tilemaps.Tilemap-createFromObjects
 
-        this.coins = this.map.createFromObjects("Objects", {
-            name: "coin",
-            key: "tilemap_sheet",
-            frame: 151
-        });
+        // this.coins = this.map.createFromObjects("objects", {
+        //     name: "coin",
+        //     key: "tilemap_sheet",
+        //     frame: 151
+        // });
         
+
         // Since createFromObjects returns an array of regular Sprites, we need to convert 
         // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
-        this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
+
+        // this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
+
 
         // Create a Phaser group out of the array this.coins
         // This will be used for collision detection below.
-        this.coinGroup = this.add.group(this.coins);
+        // this.coinGroup = this.add.group(this.coins);
 
         // set up player avatar
-        my.sprite.player = this.physics.add.sprite(30, 345, "platformer_characters", "tile_0000.png");
+        my.sprite.player = this.physics.add.sprite(this.playerSpawn.objects[0].x, this.playerSpawn.objects[0].y, "platformer_characters", "tile_0000.png");
+        my.sprite.player.setFlip(true, false);
         my.sprite.player.setCollideWorldBounds(true);
 
         // Enable collision handling
         this.physics.add.collider(my.sprite.player, this.groundLayer);
 
         // Handle collision detection with coins
-        this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
+        // this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
             
-            my.vfx.coin.x = obj2.x;
-            my.vfx.coin.y = obj2.y;
-            my.vfx.coin.start();
-            obj2.destroy(); // remove coin on overlap
-        });
+        //     my.vfx.coin.x = obj2.x;
+        //     my.vfx.coin.y = obj2.y;
+        //     my.vfx.coin.start();
+        //     obj2.destroy(); // remove coin on overlap
+        // });
         
         // set up Phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();

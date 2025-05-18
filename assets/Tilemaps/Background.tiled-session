@@ -1,0 +1,64 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "platformer-level-1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "Background.tmx": {
+            "scale": 0.76,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 360.5263157894737,
+                "y": 120.39473684210526
+            }
+        },
+        "Background.tmx#BasicBackground": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx": {
+            "expandedObjectLayers": [
+                4
+            ],
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": -97.33333333333331,
+                "y": 299.33333333333337
+            }
+        },
+        "platformer-level-1.tmx#BasicBackground": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx#Characters": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx#KennyBasicPlat": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/acrmi/Documents/CMPM120/MyPlatformer/assets",
+    "last.imagePath": "C:/Users/acrmi/Documents/CMPM120/MyPlatformer/assets/Tilemaps",
+    "map.height": 10,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 24,
+    "map.tileWidth": 24,
+    "openFiles": [
+        "Background.tmx",
+        "platformer-level-1.tmx"
+    ],
+    "project": "Background.tiled-project",
+    "recentFiles": [
+        "Background.tmx",
+        "platformer-level-1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
+}

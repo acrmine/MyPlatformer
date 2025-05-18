@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="7" tilewidth="24" tileheight="24" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="BasicBackground" tilewidth="24" tileheight="24" tilecount="24" columns="8">
+  <image source="tilemap-backgrounds_packed.png" width="192" height="72"/>
+ </tileset>
+ <layer id="1" name="background" width="30" height="7">
+  <data encoding="csv">
+1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,
+1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,
+1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4,1,2,
+9,10,11,12,9,10,11,12,9,10,11,12,9,10,11,12,9,10,11,12,9,10,11,12,9,10,11,12,9,10,
+17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,
+17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,
+17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18,19,20,17,18
+</data>
+ </layer>
+</map>
