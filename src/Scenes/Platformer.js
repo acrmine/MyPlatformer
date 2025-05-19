@@ -24,8 +24,10 @@ class Platformer extends Phaser.Scene {
         this.tileset = this.map.addTilesetImage("KennyBasicPlat", "tilemap_tiles");
 
         // Create a layer
+        Util.createBackgroundImage(this, "background_basic", 2);
         this.groundLayer = this.map.createLayer("groundLayer", this.tileset, 0, 0);
-        this.overlapLayer = this.map.createLayer("overlap", this.tileset, 0, 0);
+        this.overlapLayer = this.map.createLayer("overlap1", this.tileset, 0, 0);
+        this.overlap2 = this.map.createLayer("overlap2", this.tileset, 0, 0);
         this.playerSpawn = this.map.getObjectLayer("playerSpawn");
 
         // Make it collidable
@@ -121,7 +123,7 @@ class Platformer extends Phaser.Scene {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
             my.sprite.player.anims.play('walk', true);
-            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2-5, false);
+            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
             my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
             // Only play smoke effect if touching the ground
@@ -133,7 +135,7 @@ class Platformer extends Phaser.Scene {
             my.sprite.player.setAccelerationX(this.ACCELERATION);
             my.sprite.player.setFlip(true, false);
             my.sprite.player.anims.play('walk', true);
-            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2-5, false);
+            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
             my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
             // Only play smoke effect if touching the ground
