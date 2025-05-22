@@ -6,6 +6,7 @@ class Platformer extends Phaser.Scene {
     init() {
         // variables and settings
         this.ACCELERATION = 400;
+        this.TURNMULTIPLIER = 3;
         this.DRAG = 500;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1500;
         this.JUMP_VELOCITY = -600;
@@ -31,6 +32,7 @@ class Platformer extends Phaser.Scene {
         this.playerSpawn = this.map.getObjectLayer("playerSpawn");
 
         // Make it collidable
+        Util.createLayerCollision(this.map);
         this.groundLayer.setCollisionByProperty({
             collides: true
         });
@@ -91,12 +93,10 @@ class Platformer extends Phaser.Scene {
         }, this);
 
         my.vfx.walking = this.add.particles(0, 0, "kenny-particles", {
-            frame: ['smoke_03.png', 'smoke_09.png'],
-            // TODO: Try: add random: true
-            scale: {start: 0.03, end: 0.1},
-            // TODO: Try: maxAliveParticles: 8,
+            frame: ['fire_01.png', 'fire_02.png'],
+            scale: {start: 0.03, end: 0.07},
             lifespan: 350,
-            // TODO: Try: gravityY: -400,
+            gravityY: -200,
             alpha: {start: 1, end: 0.1}, 
         });
 
@@ -120,7 +120,7 @@ class Platformer extends Phaser.Scene {
 
     update() {
         if(cursors.left.isDown) {
-            my.sprite.player.setAccelerationX(-this.ACCELERATION);
+            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x > 0) ? (-this.ACCELERATION * this.TURNMULTIPLIER) : -this.ACCELERATION);
             my.sprite.player.resetFlip();
             my.sprite.player.anims.play('walk', true);
             my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
@@ -132,7 +132,7 @@ class Platformer extends Phaser.Scene {
             }
 
         } else if(cursors.right.isDown) {
-            my.sprite.player.setAccelerationX(this.ACCELERATION);
+            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x < 0) ? (this.ACCELERATION * this.TURNMULTIPLIER) : this.ACCELERATION);
             my.sprite.player.setFlip(true, false);
             my.sprite.player.anims.play('walk', true);
             my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
@@ -158,6 +158,7 @@ class Platformer extends Phaser.Scene {
         }
         if(my.sprite.player.body.blocked.down && Phaser.Input.Keyboard.JustDown(cursors.up)) {
             my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+            my.vfx.walking.stop();
         }
 
         if(Phaser.Input.Keyboard.JustDown(this.rKey)) {
