@@ -117,9 +117,31 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":6,
+         "name":"Death_Boxes",
+         "objects":[
+                {
+                 "height":14.6666666666667,
+                 "id":11,
+                 "name":"death",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":1440,
+                 "x":0,
+                 "y":345.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":6,
- "nextobjectid":2,
+ "nextlayerid":7,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
@@ -141,7 +163,7 @@
                  "id":0,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -150,7 +172,7 @@
                  "id":1,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -159,7 +181,7 @@
                  "id":2,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -168,7 +190,7 @@
                  "id":3,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -213,7 +235,7 @@
                  "id":20,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -222,7 +244,7 @@
                  "id":21,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -231,7 +253,7 @@
                  "id":22,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -240,7 +262,7 @@
                  "id":23,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -258,7 +280,7 @@
                  "id":40,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -267,7 +289,7 @@
                  "id":41,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -276,7 +298,7 @@
                  "id":42,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -285,7 +307,7 @@
                  "id":43,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -330,7 +352,7 @@
                  "id":60,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -339,7 +361,7 @@
                  "id":61,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -348,7 +370,7 @@
                  "id":62,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -357,7 +379,7 @@
                  "id":63,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -366,7 +388,7 @@
                  "id":80,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -375,7 +397,7 @@
                  "id":81,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -384,7 +406,7 @@
                  "id":82,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -393,7 +415,7 @@
                  "id":83,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -429,7 +451,7 @@
                  "id":100,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -438,7 +460,7 @@
                  "id":101,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -447,7 +469,7 @@
                  "id":102,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -456,7 +478,7 @@
                  "id":103,
                  "properties":[
                         {
-                         "name":"collides",
+                         "name":"jumpthru",
                          "type":"bool",
                          "value":true
                         }]
@@ -490,33 +512,6 @@
                 }, 
                 {
                  "id":120,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":121,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":122,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":123,
                  "properties":[
                         {
                          "name":"collides",
@@ -562,33 +557,6 @@
                 }, 
                 {
                  "id":140,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":141,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":142,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":143,
                  "properties":[
                         {
                          "name":"collides",

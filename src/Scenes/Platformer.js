@@ -6,10 +6,11 @@ class Platformer extends Phaser.Scene {
     init() {
         // variables and settings
         this.ACCELERATION = 400;
-        this.TURNMULTIPLIER = 3;
-        this.DRAG = 500;    // DRAG < ACCELERATION = icy slide
+        this.MAX_XSPEED = 500;
+        this.TURN_MULTIPLIER = 3;
+        this.DRAG = 800;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1500;
-        this.JUMP_VELOCITY = -600;
+        this.JUMP_VELOCITY = -450;
         this.PARTICLE_VELOCITY = 50;
         this.SCALE = 2.0;
     }
@@ -25,7 +26,7 @@ class Platformer extends Phaser.Scene {
         this.tileset = this.map.addTilesetImage("KennyBasicPlat", "tilemap_tiles");
 
         // Create a layer
-        Util.createBackgroundImage(this, "background_basic", 2);
+        this.bg_1 = Util.createBackgroundImage(this, "background_basic", 2);
         this.groundLayer = this.map.createLayer("groundLayer", this.tileset, 0, 0);
         this.overlapLayer = this.map.createLayer("overlap1", this.tileset, 0, 0);
         this.overlap2 = this.map.createLayer("overlap2", this.tileset, 0, 0);
@@ -33,13 +34,6 @@ class Platformer extends Phaser.Scene {
 
         // Make it collidable
         Util.createLayerCollision(this.map);
-        this.groundLayer.setCollisionByProperty({
-            collides: true
-        });
-
-        this.overlapLayer.setCollisionByProperty({
-            collides: true
-        });
 
         // Find coins in the "Objects" layer in Phaser
         // Look for them by finding objects with the name "coin"
@@ -66,6 +60,7 @@ class Platformer extends Phaser.Scene {
 
         // set up player avatar
         my.sprite.player = this.physics.add.sprite(this.playerSpawn.objects[0].x, this.playerSpawn.objects[0].y, "platformer_characters", "tile_0000.png");
+        my.sprite.player.body.setMaxVelocityX(this.MAX_XSPEED);
         my.sprite.player.setFlip(true, false);
         my.sprite.player.setCollideWorldBounds(true);
 
@@ -120,7 +115,7 @@ class Platformer extends Phaser.Scene {
 
     update() {
         if(cursors.left.isDown) {
-            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x > 0) ? (-this.ACCELERATION * this.TURNMULTIPLIER) : -this.ACCELERATION);
+            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x > 0) ? (-this.ACCELERATION * this.TURN_MULTIPLIER) : -this.ACCELERATION);
             my.sprite.player.resetFlip();
             my.sprite.player.anims.play('walk', true);
             my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
@@ -132,7 +127,7 @@ class Platformer extends Phaser.Scene {
             }
 
         } else if(cursors.right.isDown) {
-            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x < 0) ? (this.ACCELERATION * this.TURNMULTIPLIER) : this.ACCELERATION);
+            my.sprite.player.setAccelerationX((my.sprite.player.body.velocity.x < 0) ? (this.ACCELERATION * this.TURN_MULTIPLIER) : this.ACCELERATION);
             my.sprite.player.setFlip(true, false);
             my.sprite.player.anims.play('walk', true);
             my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth/2-10, my.sprite.player.displayHeight/2, false);
@@ -164,5 +159,8 @@ class Platformer extends Phaser.Scene {
         if(Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
         }
+
+        // background movement
+        Util.moveBackground(this.bg_1, this.cameras.main, 0.1);
     }
 }

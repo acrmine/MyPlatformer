@@ -5,15 +5,23 @@ class Util
         let textureObject = scene.textures.get(texture);
         let width = textureObject.getSourceImage().width;
         let height = textureObject.getSourceImage().height;
-        scene.background = scene.add.image((width/2)*scale, (height/2)*scale, texture);
-        scene.background.setScale(scale);
+        let background = scene.add.tileSprite(width/2, height/2, game.config.width, game.config.height, texture);
+        background.setOrigin(0, 0);
+        background.setScrollFactor(0);
+        background.setScale(scale);
+        return background;
+    }
+
+    static moveBackground(bg, camera, rate)
+    {
+        bg.tilePositionX = camera.scrollX * rate;
     }
 
     static createLayerCollision(map)
     {
         for(let layer of map.layers)
-        {
-            console.log("got to layers");
+        {9
+            let tileset = map.tilesets[0];
             for(let i = 0; i < map.width; i++)
             {
                 for(let j = 0; j < map.height; j++)
@@ -21,14 +29,16 @@ class Util
                     let tile = layer.tilemapLayer.getTileAt(i, j);
                     if(tile != null)
                     {
-                        console.log("tile jumpthru: " + tile.properties.jumpthru);
-                        console.log("tile collides: " + tile.properties.collides);
-                        if(tile.jumpthru)
-                            tile.setCollision(true, true, true, true, false);
-                        else if(tile.collides)
-                            tile.setCollision(true, true, true, true, false);
-                        else
-                            tile.resetCollision(false);
+                        let tileProps = tileset.getTileProperties(tile.index);
+                        if(tileProps != null)
+                        {
+                            if(tileProps.jumpthru)
+                                tile.setCollision(false, false, true, false, false);
+                            else if(tileProps.collides)
+                                tile.setCollision(true, true, true, true);
+                            else
+                                tile.resetCollision(false);
+                        }
                     }
                 }
             }
