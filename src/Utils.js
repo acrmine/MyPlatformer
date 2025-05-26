@@ -1,8 +1,15 @@
 class Util 
 {
+    static playerScore = 0;
+
     static getRndInteger(min, max) 
     {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    static staticImage(scene, texture, scale)
+    {
+        scene.add.image(0, 0, texture).setOrigin(0,0).setScale(scale);
     }
     
     static createBackgroundImage(scene, texture, scale)

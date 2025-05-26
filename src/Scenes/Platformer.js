@@ -19,7 +19,8 @@ class Platformer extends Phaser.Scene {
     create() {
         // Create a new tilemap game object which uses 18x18 pixel tiles, and is
         // 45 tiles wide and 25 tiles tall.
-        this.map = this.add.tilemap("platformer-level-1", 18, 18, 45, 25);
+        this.map = this.add.tilemap("platformer-level-1", 18, 18, 40, 25);
+        this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels * 1.5);
 
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
@@ -59,12 +60,17 @@ class Platformer extends Phaser.Scene {
         this.deathZones = this.map.createFromObjects("Death_Boxes", {
             name: "death",
         });
+
+        this.winZone = this.map.createFromObjects("Interactables", {
+            name: "win",
+        })
         
 
         // Since createFromObjects returns an array of regular Sprites, we need to convert 
         // them into Arcade Physics sprites (STATIC_BODY, so they don't move) 
         this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
         this.physics.world.enable(this.deathZones, Phaser.Physics.Arcade.STATIC_BODY);
+        this.physics.world.enable(this.winZone, Phaser.Physics.Arcade.STATIC_BODY);
 
         // Create a Phaser group out of the array of objects
         // This will be used for collision detection below.
@@ -73,6 +79,9 @@ class Platformer extends Phaser.Scene {
             child.anims.play('coinspin', true);
         this.deathBoxGroup = this.add.group(this.deathZones);
         for(let child of this.deathBoxGroup.getChildren())
+            child.visible = false;
+        this.winGroup = this.add.group(this.winZone);
+        for(let child of this.winGroup.getChildren())
             child.visible = false;
 
         // set up player avatar
@@ -85,12 +94,18 @@ class Platformer extends Phaser.Scene {
             my.vfx.coin.y = obj2.y;
             my.vfx.coin.start();
             this.coinSound.play();
+            obj1.score += 50;
             obj2.destroy(); // remove coin on overlap
         });
 
         // Handle collision with death boxes
-        this.physics.add.overlap(my.sprite.player, this.deathZones, (obj1, obj2) => {
+        this.physics.add.overlap(my.sprite.player, this.deathBoxGroup, (obj1, obj2) => {
             obj1.die("falling");
+        });
+
+        // Handle collision with win boxes
+        this.physics.add.overlap(my.sprite.player, this.winGroup, (obj1, obj2) => {
+            obj1.win();
         });
         
         this.rKey = this.input.keyboard.addKey('R');

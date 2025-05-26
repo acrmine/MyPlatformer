@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="18" tileheight="18" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="KennyBasicPlat" tilewidth="18" tileheight="18" tilecount="180" columns="20">
+  <image source="tilemap_packed.png" width="360" height="162"/>
+ </tileset>
+ <tileset firstgid="181" name="BasicBackGround" tilewidth="24" tileheight="24" tilecount="24" columns="8">
+  <image source="tilemap-backgrounds_packed.png" width="192" height="72"/>
+ </tileset>
+ <tileset firstgid="205" name="Characters" tilewidth="24" tileheight="24" tilecount="27" columns="9">
+  <image source="tilemap-characters_packed.png" width="216" height="72"/>
+ </tileset>
+ <layer id="1" name="MainLayer" width="20" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,18,19,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,18,39,39,39,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,58,59,98,59,60,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,117,0,0,0,0,0,0,0,0,0,0,0,0,22,23,23,23,
+23,24,0,138,0,127,0,0,0,0,0,0,0,0,22,23,23,24,123,123,
+123,124,23,23,23,23,23,23,23,23,23,23,23,23,26,123,123,25,23,23,
+123,124,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123,123
+</data>
+ </layer>
+ <layer id="2" name="Overlap" width="20" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,2147483854,0,0,0,0,0,0,125,125,145,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,145,0,145,0,0,
+0,0,0,0,0,0,145,0,145,145,2147483774,125,0,0,0,0,0,0,126,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+</map>

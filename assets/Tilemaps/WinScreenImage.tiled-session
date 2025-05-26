@@ -1,0 +1,72 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "platformer-level-1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "WinScreenImage.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 207,
+                "y": 126
+            }
+        },
+        "WinScreenImage.tmx#BasicBackGround": {
+            "scaleInDock": 1
+        },
+        "WinScreenImage.tmx#Characters": {
+            "scaleInDock": 1
+        },
+        "WinScreenImage.tmx#KennyBasicPlat": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 1206.6666666666665,
+                "y": 156
+            }
+        },
+        "platformer-level-1.tmx#BasicBackground": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx#Characters": {
+            "scaleInDock": 1
+        },
+        "platformer-level-1.tmx#KennyBasicPlat": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Cracktus/OneDrive/Documents/CMPM120/MyPlatformer/assets",
+    "last.imagePath": "C:/Users/Cracktus/OneDrive/Documents/CMPM120/MyPlatformer/assets/Tilemaps",
+    "map.height": 10,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 18,
+    "map.tileWidth": 18,
+    "map.width": 20,
+    "openFiles": [
+        "platformer-level-1.tmx"
+    ],
+    "project": "WinScreenImage.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "platformer-level-1.tmx",
+        "WinScreenImage.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
+}

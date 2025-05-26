@@ -14,6 +14,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.inTheAir = false;
         this.jumpTimer = 0;
         this.walkTimer = 0;
+        this.score = 0;
         this.scene = scene;
         this.spawnPoint = {
             x: x,
@@ -22,6 +23,9 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
         this.jumpSound = scene.sound.add('sfx_jump', { volume: 0.3, });
         this.landSound = scene.sound.add('sfx_land', { volume: 0.3, });
+        
+        // this.scoreMessage = scene.add.bitmapText(10, 10, "blockFont", "Score: " + this.score, 20);
+        // this.scoreMessage.setOrigin(0, 0).setCenterAlign();
 
         my.vfx.walking = this.scene.add.particles(0, 0, "kenny-particles", {
             frame: ['fire_01.png', 'fire_02.png'],
@@ -32,6 +36,17 @@ class Player extends Phaser.Physics.Arcade.Sprite
             alpha: {start: 1, end: 0.1}, 
         });
         my.vfx.walking.stop();
+
+        my.vfx.firework = this.scene.add.particles(0, 0, "kenny-particles", {
+            frame: 'star_06.png',
+            scale: { min: 0.4, max: 1.2},
+            velocityX: { min: -100, max: 100 },
+            velocityY: { min: -100, max: 100 },
+            maxAliveParticles: 30,
+            lifespan: 350,
+            duration: 1000, 
+        });
+        my.vfx.firework.stop();
 
         my.vfx.jump = this.scene.add.particles(0, 0, "kenny-particles", {
             frame: 'muzzle_01.png',
@@ -123,6 +138,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
             this.inTheAir = false;
             this.landSound.play();
         }
+
         if(this.jumpTimer > 0)
             this.jumpTimer -= 1;
         if(this.walkTimer > 0)
@@ -142,6 +158,20 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 loop: false,
             });
         }
+    }
+
+    win()
+    {
+        Util.playerScore = this.score;
+        my.vfx.firework.x = this.x;
+        my.vfx.firework.y = this.y;
+        my.vfx.firework.start();
+        this.winTimer = this.scene.time.addEvent({
+            delay: 1000,
+            callback: () => { this.scene.scene.start("winScene"); },
+            callbackScope: this,
+            loop: false,
+        })
     }
 
     respawn()
