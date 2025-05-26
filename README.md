@@ -1,5 +1,5 @@
-**Platform Improvement**
+**Little Dude Goes Places**
 
-Starter code for creating a platformer game using Arcade Phsyics in Phaser.
+Can't think of a name, thought that was better than "Burning my House Down".
 
 Visual assets courtesy of [Kenny Assets](https://kenney.nl/assets), with gratitude.

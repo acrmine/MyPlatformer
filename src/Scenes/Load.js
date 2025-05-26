@@ -14,6 +14,14 @@ class Load extends Phaser.Scene {
         this.load.image("background_basic", "Background.png");
         this.load.tilemapTiledJSON("platformer-level-1", "platformer-level-1.tmj");   // Tilemap in JSON
 
+        // Load audio
+        this.load.audio("sfx_jump", "SFX/jump.wav");
+        this.load.audio("sfx_land", "SFX/landing.wav");
+        this.load.audio("sfx_coin", "SFX/pickupCoin.wav");
+        this.load.audio("sfx_walk1", "SFX/walking1.wav");
+        this.load.audio("sfx_walk2", "SFX/walking2.wav");
+        this.load.audio("sfx_walk3", "SFX/walking3.wav");
+
         // Load the tilemap as a spritesheet
         this.load.spritesheet("tilemap_sheet", "Tilemaps/tilemap_packed.png", {
             frameWidth: 18,
@@ -58,6 +66,17 @@ class Load extends Phaser.Scene {
             frames: [
                 { frame: "tile_0001.png" }
             ],
+        });
+
+        this.anims.create({
+            key: 'coinspin',
+            defaultTextureKey: "tilemap_sheet",
+            frames: [
+                { frame: 151 },
+                { frame: 152 }
+            ],
+            frameRate: 2,
+            repeat: -1
         });
 
          // ...and pass to the next Scene

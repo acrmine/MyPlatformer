@@ -1,5 +1,10 @@
 class Util 
 {
+    static getRndInteger(min, max) 
+    {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+    
     static createBackgroundImage(scene, texture, scale)
     {
         let textureObject = scene.textures.get(texture);
@@ -20,7 +25,7 @@ class Util
     static createLayerCollision(map)
     {
         for(let layer of map.layers)
-        {9
+        {
             let tileset = map.tilesets[0];
             for(let i = 0; i < map.width; i++)
             {
